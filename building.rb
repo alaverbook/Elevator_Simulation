@@ -34,6 +34,7 @@ class Building
 	def tick
 		floors_with_people_going_up = Array.new
 		floors_with_people_going_down = Array.new
+		
 		@floors.each do |floor|
 			if floor.call_buttons["up"] == "pressed"
 				floors_with_people_going_up.push(floor)
@@ -42,6 +43,7 @@ class Building
 				floors_with_people_going_down.push(floor)
 			end
 		end
+
 		@elevators.each do |elevator|
 			if elevator.direction == "down"
 				if elevator.location == @floors.last
