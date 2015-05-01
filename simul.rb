@@ -10,13 +10,23 @@ class Simulation
 		@building 	= Building.new
 		register(@building)
 
+		initialize_floors(num_of_floors)
+
+		initialize_people(num_of_people)
+
+		initialize_elevators(num_of_elevators)
+	end
+
+	def initialize_floors num_of_floors
 		while num_of_floors > 0 do
 			num_of_floors -= 1
 			temp_floor = Floor.new({floor_number: num_of_floors.to_s})
 			@building.floors.push(temp_floor)
 			register(temp_floor)
 		end
+	end
 
+	def initialize_people num_of_people
 		while num_of_people > 0 do
 			num_of_people -= 1
 			temp_floor_1 = @building.floors.sample
@@ -24,7 +34,9 @@ class Simulation
 			temp_floor_1.persons.push(temp_person)
 			register(temp_person)
 		end
+	end
 
+	def initialize_elevators num_of_elevators
 		while num_of_elevators > 0 do
 			temp_elevator = Elevator.new({location: @building.floors.last, name: "Lift #{num_of_elevators}"})
 			@building.elevators.unshift(temp_elevator)
