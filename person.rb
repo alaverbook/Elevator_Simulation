@@ -1,4 +1,5 @@
 require_relative 'floor'
+require_relative 'elevator'
 
 class Person
 	attr_reader :desired_floor, :location
