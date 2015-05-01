@@ -49,5 +49,5 @@ class Simulation
 
 end
 
-sim = Simulation.new(3, 1, 10)
-sim.run(15)
+sim = Simulation.new(6, 2, 50)
+sim.run(20)
